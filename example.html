@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "FPvB6u9VmaoMg4Z04",
+      });
+   })();
+</script>
+
+<body>
+<form >
+    <input type="text" name="name" required placeholder="name" id="name">
+    <input type="email" name="email" required placeholder="email" id="email">
+    <input type="text" name="subject" required placeholder="subject" id="subject">
+    <textarea name="message" required placeholder="message" id="message"></textarea>
+    <button type="submit" onclick="sendMail()">Submit Form</button>
+</form>
+
+<script>
+    function sendMail(){
+        let params={
+            name:document.getElementById('name').value,
+            email:document.getElementById('email').value,
+            subject:document.getElementById('subject').value,
+            message:document.getElementById('message').value
+        }
+        emailjs.send('service_u5n4agl','template_b5acjbg',params).then(alert('Email Send.'))
+    }
+</script>
+</body>
+</html>
